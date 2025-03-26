@@ -12,25 +12,25 @@ func isBipartite(graph [][]int) bool {
 	result := true
 
 	nodeMark := make([]int, len(graph))
-	nodeStack := [][]int{{0, -1}}
-
-	for len(nodeStack) > 0 && result {
-		node := nodeStack[len(nodeStack)-1]
-		nodeStack = nodeStack[:len(nodeStack)-1]
-		if nodeMark[node[0]] == 0 {
-			nodeMark[node[0]] = node[1]
-			for i := range graph[node[0]] {
-				nodeStack = append(nodeStack, []int{graph[node[0]][i], node[1] * -1})
-			}
-		} else if nodeMark[node[0]] != node[1] {
-			result = false
-		}
-	}
 
 	for i := range nodeMark {
 		if nodeMark[i] == 0 {
-			result = false
-			break
+
+			nodeStack := [][]int{{i, -1}}
+
+			for len(nodeStack) > 0 && result {
+				node := nodeStack[len(nodeStack)-1]
+				nodeStack = nodeStack[:len(nodeStack)-1]
+				if nodeMark[node[0]] == 0 {
+					nodeMark[node[0]] = node[1]
+					for i := range graph[node[0]] {
+						nodeStack = append(nodeStack, []int{graph[node[0]][i], node[1] * -1})
+					}
+				} else if nodeMark[node[0]] != node[1] {
+					result = false
+				}
+			}
+
 		}
 	}
 
