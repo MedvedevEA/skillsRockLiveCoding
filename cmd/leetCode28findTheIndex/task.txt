@@ -4,4 +4,4 @@
 Merge Sorted Array (https://leetcode.com/problems/merge-sorted-array/description/)
 Сложность: easy
 
-Для двух строк needle и haystack вернуть индекс первого вхождения needleв haystack, или , -1 если needle не является частью haystack
+Для двух строк needleи haystack вернуть индекс первого вхождения needleв haystack, или , -1если needleне является частью haystack
