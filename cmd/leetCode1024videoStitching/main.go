@@ -14,17 +14,22 @@ func videoStitching(clips [][]int, time int) int {
 	sort.Slice(clips, func(i int, j int) bool {
 		return clips[i][0] < clips[j][0] || (clips[i][0] == clips[j][0] && clips[i][1] > clips[j][1])
 	})
+	clipsStart := 0
 	clipCount := 0
 	clipTime := 0
+
 	for clipTime < time {
 
 		maxClipTime := 0
-		i := 0
-		for i < len(clips) && clips[i][0] <= clipTime {
+
+		for i := clipsStart; i < len(clips); i++ {
+			if clips[i][0] > clipTime {
+				break
+			}
 			if clips[i][1]-clipTime > maxClipTime {
 				maxClipTime = clips[i][1] - clipTime
+				clipsStart = i + 1
 			}
-			i++
 		}
 		if maxClipTime == 0 {
 			return -1
@@ -34,7 +39,6 @@ func videoStitching(clips [][]int, time int) int {
 		}
 	}
 
-	//fmt.Println(clips)
 	return clipCount
 }
 
