@@ -1,0 +1,4 @@
+Задача:  (https://leetcode.com/problems/minimum-size-subarray-sum/)1461. Check If a String Contains All Binary Codes of Size K (https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/description/)
+Сложность: medium
+
+Дана бинарная строка s и целое число k, верните true, если каждый бинарный код длины k является подстрокой s. В противном случае верните false.
