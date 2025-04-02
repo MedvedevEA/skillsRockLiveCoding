@@ -1,0 +1,4 @@
+Задача: №22. Generate Parentheses (https://leetcode.com/problems/generate-parentheses/)
+Сложность: medium  
+
+Учитывая n пар круглых скобок, напишите функцию, которая генерирует все комбинации правильных круглых скобок.
