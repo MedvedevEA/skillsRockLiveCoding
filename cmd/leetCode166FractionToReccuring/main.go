@@ -7,7 +7,7 @@ import (
 
 var (
 	numerator   = 1
-	denominator = 214748364
+	denominator = 6
 )
 
 func fractionToDecimal(numerator int, denominator int) string {
@@ -40,17 +40,21 @@ func fractionToDecimal(numerator int, denominator int) string {
 		}
 
 		for i := 0; i < len(afterPoint)/5 && check; i++ {
-
-			f1 := afterPoint[len(afterPoint)-(i+1):]
-			f2 := afterPoint[len(afterPoint)-(i+1)*2 : len(afterPoint)-(i+1)*2+(i+1)]
-			f3 := afterPoint[len(afterPoint)-(i+1)*3 : len(afterPoint)-(i+1)*3+(i+1)]
-			f4 := afterPoint[len(afterPoint)-(i+1)*4 : len(afterPoint)-(i+1)*4+(i+1)]
-			f5 := afterPoint[len(afterPoint)-(i+1)*5 : len(afterPoint)-(i+1)*5+(i+1)]
-
-			if f1 == f2 && f2 == f3 && f3 == f4 && f4 == f5 {
-				afterPoint = afterPoint[:len(afterPoint)-(i+1)*5] + "(" + f1 + ")"
-				do = false
+			fBase := afterPoint[len(afterPoint)-(i+1):]
+			isF := true
+			for j := 2; j < 6; j++ {
+				fNext := afterPoint[len(afterPoint)-(i+1)*j : len(afterPoint)-(i+1)*j+(i+1)]
+				if fBase != fNext {
+					isF = false
+					break
+				}
 			}
+			if isF {
+				afterPoint = afterPoint[:len(afterPoint)-(i+1)*5] + "(" + fBase + ")"
+				do = false
+				break
+			}
+
 		}
 
 	}
