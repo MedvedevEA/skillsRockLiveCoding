@@ -8,28 +8,28 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	sum := 0
-	i := 1
-	for l1 != nil {
-		sum += l1.Val * i
-		i *= 10
-		l1 = l1.Next
-	}
-	i = 1
-	for l2 != nil {
-		sum += l2.Val * i
-		i *= 10
-		l2 = l2.Next
-	}
-	l3 := &ListNode{sum % 10, nil}
-	lr := l3
-	i = 10
-	for sum >= i {
-		l3.Next = &ListNode{sum % (i * 10) / i, nil}
+	lr := &ListNode{0, nil}
+	l3 := lr
+	m := 0
+	for l1 != nil || l2 != nil || m > 0 {
+		l1value := 0
+		if l1 != nil {
+			l1value = l1.Val
+			l1 = l1.Next
+		}
+		l2value := 0
+		if l2 != nil {
+			l2value = l2.Val
+			l2 = l2.Next
+		}
+
+		l3value := (l1value + l2value + m) % 10
+		m = (l1value + l2value + m) / 10
+		l3.Next = &ListNode{l3value, nil}
 		l3 = l3.Next
-		i *= 10
+
 	}
-	return lr
+	return lr.Next
 }
 
 func main() {
