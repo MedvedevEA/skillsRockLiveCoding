@@ -1,0 +1,8 @@
+Задача: №2874. Maximum Value of an Ordered Triplet II (https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-ii)
+Сложность: Medium
+
+Вам дан целочисленный массив с индексом 0nums .
+
+Верните максимальное значение по всем тройкам индексов, (i, j, k) таким что i < j < k. Если все такие тройки имеют отрицательное значение, верните 0.
+
+Значение тройки индексов (i, j, k) равно (nums[i] - nums[j]) * nums[k].
