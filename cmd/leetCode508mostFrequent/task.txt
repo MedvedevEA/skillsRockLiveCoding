@@ -1,4 +1,4 @@
-Задача:  508. Most Frequent Subtree Sum (https://leetcode.com/problems/most-frequent-subtree-sum/description/)
+Задача:  mjyz n (https://leetcode.com/problems/most-frequent-subtree-sum/description/)
 Сложность: medium
 
 Дано корень бинарного дерева, вернуть наиболее часто встречающуюся сумму поддерева. Если есть несколько таких значений, вернуть все значения с наибольшей частотой в любом порядке.
